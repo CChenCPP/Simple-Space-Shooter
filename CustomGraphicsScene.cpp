@@ -5,6 +5,7 @@
 CustomGraphicsScene::CustomGraphicsScene(QObject* parent) : QGraphicsScene(parent), checkEnemiesHealthTimer(new QTimer())
 {
     setSceneRect(0,0,sceneWidth,sceneHeight);
+    setBackgroundBrush(QBrush(QImage(":/Images/Images/Background1.jpg")));
     connect(checkEnemiesHealthTimer,&QTimer::timeout,this,&CustomGraphicsScene::destroyEnemies);
     checkEnemiesHealthTimer->start(50);
 }
@@ -36,5 +37,5 @@ void CustomGraphicsScene::spawn()
 {
     Enemy* enemy = new Enemy();
     this->addItem(enemy);
-    enemy->setPos(RNG::randomNum(0,this->width() - enemy->rect().width()), RNG::randomNum(0,this->height() / 2 - enemy->rect().height()));
+    enemy->setPos(RNG::randomNum(0,this->width() - enemy->pixmap().width()), RNG::randomNum(0,this->height() / 8 - enemy->pixmap().height()));
 }

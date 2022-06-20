@@ -14,7 +14,9 @@ public:
     CustomGraphicsScene* mainScene;
     CustomGraphicsView* mainView;
     Player* player;
+    QTimer* levelIncreaseTimer;
     QTimer* enemySpawnTimer;
+    int spawnRateMs;
     Score* score;
     Health* health;
     QMediaPlayer* bgMusic;

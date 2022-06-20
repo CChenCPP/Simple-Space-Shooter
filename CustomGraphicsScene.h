@@ -7,7 +7,7 @@ class CustomGraphicsScene : public QGraphicsScene
 {
     Q_OBJECT
 public:
-    static constexpr int sceneWidth = 800;
+    static constexpr int sceneWidth = 400;
     static constexpr int sceneHeight = 600;
     QTimer* checkEnemiesHealthTimer;
 

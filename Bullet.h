@@ -1,15 +1,14 @@
 #pragma once
-#include <QGraphicsRectItem>
+#include <QGraphicsPixmapItem>
 #include <QObject>
 #include <QTimer>
 #include <QMediaPlayer>
 
-class Bullet : public QObject, public QGraphicsRectItem
+class Bullet : public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
-    Bullet();
-    Bullet(int damage);
+    Bullet(int damage = 60, QGraphicsItem* parent = nullptr);
 
 private:
     QTimer timer;

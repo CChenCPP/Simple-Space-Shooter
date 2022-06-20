@@ -5,7 +5,7 @@
 Score::Score(QGraphicsItem* parent) : score(0), QGraphicsTextItem(parent)
 {
     setPlainText("Score: " + Parse::toQString(score));
-    setDefaultTextColor(Qt::blue);
+    setDefaultTextColor(Qt::white);
     setFont(QFont("times", 16));
 }
 

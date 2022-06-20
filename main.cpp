@@ -3,6 +3,7 @@
 #include <Game.h>
 #include <QAudioOutput>
 
+QApplication* app;
 Game* game;
 QAudioOutput audioOutput;
 

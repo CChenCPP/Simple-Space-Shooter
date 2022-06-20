@@ -5,19 +5,13 @@
 
 extern QAudioOutput audioOutput;
 
-Bullet::Bullet()
+Bullet::Bullet(int damage, QGraphicsItem* parent) : QGraphicsPixmapItem(parent), damage(damage)
 {
-    setRect(0,0,10,50);
-    connect(&timer,&QTimer::timeout,this,Bullet::move);
-    timer.start(25);
-}
-
-Bullet::Bullet(int damage) : damage(damage)
-{
-    setRect(0,0,10,50);
-    bulletSound.setSource(QUrl("qrc:/gun/Sounds/Laser_1.mp3"));
+    bulletSound.setSource(QUrl("qrc:/Sounds/Sounds/Laser_1.mp3"));
     bulletSound.setAudioOutput(&audioOutput);
     bulletSound.play();
+    setPixmap(QPixmap(":/Images/Images/Laser_Bullet1.png"));
+    pixmap().scaled(5,50);
     connect(&timer,&QTimer::timeout,this,Bullet::move);
     timer.start(25);
 }
@@ -40,7 +34,7 @@ void Bullet::move()
 {
     setPos(x(), y() - 10);
     damageEnemies();
-    if (y() < 0 - rect().height()){
+    if (y() < 0 - pixmap().height()){
         scene()->removeItem(this);
         delete this;
     }

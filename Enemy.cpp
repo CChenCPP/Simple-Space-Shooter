@@ -8,9 +8,7 @@ extern Game* game;
 
 Enemy::Enemy() : HP(RNG::randomNum(50,100))
 {
-    int width = RNG::randomNum(minWidth,maxWidth);
-    int height = RNG::randomNum(minHeight,maxHeight);
-    setRect(0,0,width,height);
+    setPixmap(QPixmap(":/Images/Images/Enemy_Helicopter1.png"));
     connect(&timer,&QTimer::timeout,this,Enemy::move);
     timer.start(25);
 }
